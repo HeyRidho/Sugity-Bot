@@ -275,6 +275,10 @@ async function connectToWhatsApp () {
 // run in main file
 connectToWhatsApp()
 
+app.get('/', () => {
+    res.send('<h1>Hello World</h1>')
+})
+
 app.listen(process.env.PORT || 8000, () => {
     console.log('Bot Sugity Ready!')
 })
