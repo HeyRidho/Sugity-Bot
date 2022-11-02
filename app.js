@@ -84,7 +84,7 @@ async function connectToWhatsApp () {
                     totalOtHour += parseInt(data.jam)
                 })
                 let merged = merging.join('\n') + `\n *Total MP* : *${overtime.length} Orang*` + `\n *Total Jam* : *${totalOtHour} Jam*`
-                // console.log('total hr', totalOtHour)
+
                 await sock.sendMessage(number, { text: merged })
             } else if(employee.status == 'admin' && message.toLowerCase() == 'delete overtime') {
                 overtimes = []
