@@ -6,6 +6,9 @@ const fs = require('fs')
 const xlsx = require('xlsx')
 process.env.TZ = 'Asia/Bangkok'
 const date = new Date()
+const express = require('express')
+require('dotenv').config()
+const app = express()
 
 const workbook = xlsx.readFile('./data/database.xlsx')
 const dataJson = xlsx.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]])
@@ -271,3 +274,7 @@ async function connectToWhatsApp () {
 }
 // run in main file
 connectToWhatsApp()
+
+app.listen(process.env.PORT || 8000, () => {
+    console.log('Bot Sugity Ready!')
+})
